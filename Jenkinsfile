@@ -3,7 +3,7 @@ pipeline {
     stages {
          stage ('Clone') {
             steps {
-                sh " rm -rf * " 
+                //sh " rm -rf * " 
                 sh "git clone https://github.com/OusmanaTraore/JenkinsPipeline.git "
             }
         }
