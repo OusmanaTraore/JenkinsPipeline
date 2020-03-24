@@ -1,16 +1,21 @@
 pipeline {
     agent any
     stages {
-         stage ('Clone') {
+         stage ('Nettoyage du repertoire') {
             steps {
-                sh " rm -rf /var/lib/jenkins/workspace/MyPipelines/JenkinsPipeline/* " 
+                //sh " sudo chmod 777 /var/lib/jenkins/workspace/MyPipelines/* "
+                sh "  rm -Rf /var/lib/jenkins/workspace/Pipeline1/* " 
+            }
+         }
+            stage ('Clone') {
+            steps {
                 sh "git clone https://github.com/OusmanaTraore/JenkinsPipeline.git "
             }
         }
         stage ('Build') {
             steps {
-                sh "cd /var/lib/jenkins/workspace/MyPipelines/JenkinsPipeline/MvnProject/mon-appli/src/main/java/ && javac org/example/demo/App.java"
-           }
+                sh "cd /var/lib/jenkins/workspace/Pipeline1/JenkinsPipeline/MvnProject/mon-appli/src/main/java/ && javac org/example/demo/App.java"
+           }           
         }
         //stage ('Run') {
           //  steps {
